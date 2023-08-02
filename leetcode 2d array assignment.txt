@@ -1,0 +1,89 @@
+                         Leetcode-2D ARRAY Assignment-3(02.08.2023)
+
+
+2) richest customer wealth
+
+        class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int sum=0;
+        for(int i=0;i<accounts.length;i++){
+            int temp_wealth=0;
+            
+            for(int j=0;j<accounts[i].length;j++){
+                temp_wealth+=accounts[i][j];
+            }
+            sum=Math.max(sum,temp_wealth);
+        }
+        return sum;
+    }
+}
+
+3)toeplitz matrix
+       
+      class Solution {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        for(int i=1; i<matrix.length; i++){
+            for(int j=1; j<matrix[0].length; j++){
+                if(matrix[i][j] != matrix[i-1][j-1])
+                    return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+4) matrix diagonal sum
+       
+       class Solution {
+    public int diagonalSum(int[][] mat) {
+        int n;
+        n=mat.length;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum+=mat[i][i];
+        
+        if(i != n-1-i){
+            sum+=mat[i][n-1-i];
+        }
+
+    }
+    return sum;
+}
+}
+
+5)count negative numbers in a sorted matrix
+    
+      class Solution {
+    public int countNegatives(int[][] grid) {
+        int i = 0;
+        int j = grid[0].length - 1;
+        int count = 0;
+        
+        while (i < grid.length && j >= 0) {
+            if (grid[i][j] < 0) {
+                count += (grid.length - i);
+                j--; 
+            } else if (grid[i][j] >= 0) {
+                i++;
+            }
+        }
+        
+        return count;
+    }
+}
+
+6) Transpose matrix
+
+       class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int[][] answer = new int[matrix[0].length][matrix.length];
+        for(int i=0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[0].length; j++){
+                answer[j][i] = matrix[i][j];
+            } 
+        }
+        return answer;
+    }
+}
+
